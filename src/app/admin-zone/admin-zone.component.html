@@ -1,0 +1,24 @@
+<h2 class="text-center">Admin Zone</h2>
+<div class="row">
+  <div class="col-sm">
+    <form [formGroup]="adminForm" (ngSubmit)="onFormSubmit($event)">
+      <label for="location">Choose Location</label>
+      <div class="form-group">
+        <select
+        formControlName="location">
+        <option *ngFor="let city of listOfCities" [ngValue]="city">
+         {{ city }}
+        </option>
+      </select>
+      </div>
+      <h6 *ngIf="!adminForm.valid && adminForm.touched" class="help-block wrong-input">You must fill in the form correctly</h6>
+      <button [disabled]="!adminForm.valid" class="btn btn-danger mr-3" name='add' type="submit">Add To Forbidden List</button>
+      <button [disabled]="!adminForm.valid" class="btn btn-primary" name='remove' type="submit">Remove From Forbidden </button>
+    </form>
+  </div>
+</div>
+{{infoMessage}}
+<app-cities-list></app-cities-list>
+
+
+

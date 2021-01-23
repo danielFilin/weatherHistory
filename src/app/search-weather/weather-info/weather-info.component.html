@@ -1,0 +1,4 @@
+<h4>{{weatherData?.city}}</h4>
+<div *ngFor='let city of weatherData'>
+  <p>Date: {{ city.dt |  date:'medium' }} Tepmerature:  {{city.temp.day-273.15 | number : '1.2-2'}}°C</p>
+</div>
